@@ -1,0 +1,23 @@
+<section id="features" class="py-5">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Características</h2>
+      <p class="text-muted mb-0">
+        Todo lo que necesitas para hacer tu trabajo más simple.
+      </p>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      @for (item of features; track item.titulo) {
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body p-4">
+              <span class="feature-number">{{ item.numero }}</span>
+              <h5 class="card-title">{{ item.titulo }}</h5>
+              <p class="card-text text-muted mb-0">{{ item.descripcion }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

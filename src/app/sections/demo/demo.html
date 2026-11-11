@@ -1,0 +1,25 @@
+<section class="demo">
+  <h2>Ejemplos básicos de Angular</h2>
+
+  <!-- 1. Interpolación: mostrar el valor de una variable -->
+  <h3>1. Mostrar variables (interpolación)</h3>
+  <p>Hola, me llamo {{ nombre }}.</p>
+  <p>Tengo {{ edad }} años.</p>
+  <p>¿Es estudiante? {{ esEstudiante ? 'Sí' : 'No' }}</p>
+
+  <!-- 2. @if: mostrar algo solo si se cumple -->
+  <h3>2. if — mostrar algo solo si se cumple</h3>
+  @if (esEstudiante) {
+    <p class="ok">Soy estudiante (esto se ve porque esEstudiante es true).</p>
+  } @else {
+    <p>No soy estudiante.</p>
+  }
+
+  <!-- 3. @for: recorrer una lista -->
+  <h3>3. &#64;for — recorrer una lista</h3>
+  <ul>
+    @for (fruta of frutas; track fruta) {
+      <li>{{ fruta }}</li>
+    }
+  </ul>
+</section>

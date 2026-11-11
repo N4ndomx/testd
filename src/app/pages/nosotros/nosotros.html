@@ -1,0 +1,91 @@
+<section class="bg-light">
+  <div class="container py-5">
+    <div class="row justify-content-center text-center py-5">
+      <div class="col-lg-8">
+        <span class="badge text-bg-primary rounded-pill mb-3">Conócenos</span>
+        <h1 class="display-4 fw-bold mb-3">Sobre Producto X</h1>
+        <p class="lead text-muted mb-0">
+          Un equipo pequeño con una misión grande: hacer que tu día a día
+          sea más simple, rápido y transparente.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="nosotros" class="py-5">
+  <div class="container py-4">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body p-4">
+            <h2 class="h5 card-title">Nuestra misión</h2>
+            <p class="card-text text-muted mb-0">
+              Crear herramientas que cualquier persona pueda adoptar en
+              minutos, sin manuales y sin fricción, para que dedique su
+              energía a lo que realmente importa.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm border-0">
+          <div class="card-body p-4">
+            <h2 class="h5 card-title">Nuestra visión</h2>
+            <p class="card-text text-muted mb-0">
+              Ser la plataforma en la que miles de equipos organizan su
+              trabajo: honesta con sus datos, cercana con sus personas y
+              siempre en mejora continua.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-light py-5">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Nuestros valores</h2>
+      <p class="text-muted mb-0">Los principios que guían cada decisión.</p>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+      @for (valor of valores; track valor.titulo) {
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            <div class="card-body p-4">
+              <h3 class="h6 card-title">{{ valor.titulo }}</h3>
+              <p class="card-text text-muted mb-0">{{ valor.descripcion }}</p>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container py-4 text-center">
+    <h2 class="fw-bold mb-3">¿Hablamos?</h2>
+    <p class="text-muted mb-4">
+      Conoce el producto de primera mano o escríbenos por el formulario de
+      contacto.
+    </p>
+    <div class="d-flex flex-column flex-sm-row justify-content-center gap-2">
+      <a
+        class="btn btn-primary btn-lg"
+        [routerLink]="['/']"
+        fragment="contact"
+      >
+        Ver precios y escribirnos
+      </a>
+      <a
+        class="btn btn-outline-secondary btn-lg"
+        [routerLink]="['/']"
+      >
+        Volver al inicio
+      </a>
+    </div>
+  </div>
+</section>

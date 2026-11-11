@@ -1,0 +1,23 @@
+.demo {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.demo h2 {
+  margin-bottom: 1rem;
+}
+
+.demo h3 {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+.demo .ok {
+  color: green;
+}
+
+.demo ul {
+  padding-left: 1.25rem;
+}

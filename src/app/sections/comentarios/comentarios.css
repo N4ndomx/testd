@@ -1,0 +1,9 @@
+.carousel-item {
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+}
+
+.carousel-indicators button {
+  background-color: #0d6efd;
+}

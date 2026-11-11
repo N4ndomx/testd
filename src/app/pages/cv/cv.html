@@ -1,0 +1,49 @@
+<div class="container py-4">
+  <header class="text-center border-bottom pb-3 mb-4">
+    <h1>{{ nombre }}</h1>
+    <p class="text-muted mb-1">{{ profesion }}</p>
+    <p class="mb-0">
+      {{ email }} · {{ telefono }}
+      @if (disponible) {
+        <span class="badge text-bg-success ms-2">Disponible</span>
+      } @else {
+        <span class="badge text-bg-secondary ms-2">No disponible</span>
+      }
+    </p>
+  </header>
+
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="h5">Habilidades</h2>
+
+      @if (habilidades.length > 0) {
+        <ul class="list-group mb-4">
+          @for (habilidad of habilidades; track habilidad) {
+            <li class="list-group-item">{{ habilidad }}</li>
+          }
+        </ul>
+      } @else {
+        <p class="text-muted">Sin habilidades registradas.</p>
+      }
+    </div>
+
+    <div class="col-md-6">
+      <h2 class="h5">Experiencia</h2>
+
+      @for (trabajo of experiencia; track trabajo.empresa) {
+        <div class="card mb-3">
+          <div class="card-body">
+            <h3 class="h6 mb-0">{{ trabajo.puesto }}</h3>
+            <p class="text-muted mb-0">{{ trabajo.empresa }} · {{ trabajo.anios }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <h2 class="h5 mt-4">Educación</h2>
+
+  @for (estudio of educacion; track estudio.titulo; let i = $index) {
+    <p class="mb-1">{{ i + 1 }}. {{ estudio.titulo }} — {{ estudio.escuela }} ({{ estudio.anios }})</p>
+  }
+</div>

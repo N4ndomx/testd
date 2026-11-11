@@ -1,0 +1,47 @@
+<section class="min-vh-100 d-flex align-items-center">
+  <div class="card mx-auto" style="max-width: 400px">
+    <div class="card-body p-4">
+      <h2 class="fw-bold mb-1">Iniciar sesión</h2>
+      <p class="text-muted mb-4">Usa admin / 1234 o user / 1234 para entrar.</p>
+
+      @if (error) {
+        <div class="alert alert-danger py-2">
+          Usuario o contraseña incorrectos.
+        </div>
+      }
+
+      <form [formGroup]="formulario" (ngSubmit)="iniciar()" novalidate>
+        <div class="mb-3">
+          <label class="form-label" for="usuario">Usuario</label>
+          <input
+            id="usuario"
+            class="form-control"
+            formControlName="usuario"
+            autocomplete="username"
+            [class.is-invalid]="invalido('usuario')"
+          />
+          @if (invalido('usuario')) {
+            <div class="invalid-feedback">Mínimo 3 caracteres.</div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="contrasena">Contraseña</label>
+          <input
+            id="contrasena"
+            type="password"
+            class="form-control"
+            formControlName="contrasena"
+            autocomplete="current-password"
+            [class.is-invalid]="invalido('contrasena')"
+          />
+          @if (invalido('contrasena')) {
+            <div class="invalid-feedback">Mínimo 4 caracteres.</div>
+          }
+        </div>
+
+        <button class="btn btn-primary w-100">Iniciar sesión</button>
+      </form>
+    </div>
+  </div>
+</section>

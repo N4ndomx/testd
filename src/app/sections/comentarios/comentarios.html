@@ -1,0 +1,62 @@
+<section class="container py-5">
+  <h2 class="text-center mb-4">Lo que dicen nuestros usuarios</h2>
+
+  @if (cargando) {
+    <p class="text-center text-muted">Cargando comentarios…</p>
+  } @else if (error) {
+    <p class="text-center text-danger">No se pudieron cargar los comentarios.</p>
+  } @else {
+    <div
+      id="carouselComentarios"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        @for (comentario of comentarios; track comentario.id; let i = $index) {
+          <button
+            type="button"
+            data-bs-target="#carouselComentarios"
+            [attr.data-bs-slide-to]="i"
+            [class.active]="i === 0"
+            [attr.aria-current]="i === 0 ? 'true' : null"
+            [attr.aria-label]="'Comentario ' + (i + 1)"
+          ></button>
+        }
+      </div>
+
+      <div class="carousel-inner">
+        @for (comentario of comentarios; track comentario.id; let i = $index) {
+          <div class="carousel-item" [class.active]="i === 0">
+            <div class="card mx-auto" style="max-width: 600px">
+              <div class="card-body text-center">
+                <p class="card-text">“{{ comentario.body }}”</p>
+                <p class="mb-0">
+                  <strong>{{ comentario.name }}</strong>
+                </p>
+                <small class="text-muted">{{ comentario.email }}</small>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carouselComentarios"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carouselComentarios"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  }
+</section>

@@ -1,0 +1,58 @@
+<section id="contact" class="bg-light">
+  <h2>Contacto</h2>
+  <p>Escríbenos y te responderemos en menos de 24 horas.</p>
+
+  @if (enviado) {
+    <div class="alert alert-success">¡Gracias! Tu mensaje fue enviado.</div>
+  }
+
+  <form
+    [formGroup]="formulario"
+    (ngSubmit)="envio()"
+    novalidate
+    style="max-width: 560px"
+  >
+    <div>
+      <label class="form-label" for="nombre">Nombre</label>
+      <input
+        id="nombre"
+        class="form-control"
+        formControlName="nombre"
+        [class.is-invalid]="invalido('nombre')"
+      />
+      @if (invalido('nombre')) {
+        <div class="invalid-feedback">Escribe tu nombre.</div>
+      }
+    </div>
+
+    <div>
+      <label class="form-label" for="email">Correo electrónico</label>
+      <input
+        id="email"
+        type="email"
+        class="form-control"
+        formControlName="email"
+        [class.is-invalid]="invalido('email')"
+      />
+      @if (invalido('email')) {
+        <div class="invalid-feedback">Escribe un correo válido.</div>
+      }
+    </div>
+
+    <div>
+      <label class="form-label" for="mensaje">Mensaje</label>
+      <textarea
+        id="mensaje"
+        rows="4"
+        class="form-control"
+        formControlName="mensaje"
+        [class.is-invalid]="invalido('mensaje')"
+      ></textarea>
+      @if (invalido('mensaje')) {
+        <div class="invalid-feedback">Mínimo 10 caracteres.</div>
+      }
+    </div>
+
+    <button class="btn btn-primary">Enviar mensaje</button>
+  </form>
+</section>

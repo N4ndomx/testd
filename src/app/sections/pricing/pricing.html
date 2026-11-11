@@ -1,0 +1,45 @@
+<section id="pricing" class="bg-light py-5">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Precios</h2>
+      <p class="text-muted mb-0">
+        Planes simples y transparentes. Sin costos ocultos.
+      </p>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+      @for (plan of planes; track plan.nombre) {
+        <div class="col">
+          <div class="card h-100 shadow-sm">
+            @if (plan.destacado) {
+              <div class="text-center mt-3">
+                <span class="badge text-bg-primary rounded-pill">Más popular</span>
+              </div>
+            }
+            <div class="card-body p-4 d-flex flex-column">
+              <h5 class="card-title">{{ plan.nombre }}</h5>
+              <p class="text-muted">{{ plan.descripcion }}</p>
+              <p class="display-6 fw-bold">
+                ${{ plan.precio }}
+                <span class="fs-6 fw-normal text-muted">/mes</span>
+              </p>
+              <ul class="list-unstyled mb-4">
+                @for (item of plan.caracteristicas; track item) {
+                  <li class="mb-2">
+                    <span class="me-2 text-primary">✓</span>{{ item }}
+                  </li>
+                }
+              </ul>
+              <a
+                class="btn mt-auto"
+                [class]="plan.destacado ? 'btn-primary' : 'btn-outline-primary'"
+                href="#contact"
+              >
+                Elegir {{ plan.nombre }}
+              </a>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

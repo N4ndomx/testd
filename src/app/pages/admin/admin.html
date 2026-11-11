@@ -1,0 +1,38 @@
+<div class="admin-panel d-flex min-vh-100">
+  <aside class="bg-dark text-white p-4" style="width: 240px">
+    <h4 class="fw-bold mb-4">Panel</h4>
+
+    <ul class="list-unstyled">
+      @for (modulo of modulos; track modulo) {
+        <li class="mb-2">{{ modulo }}</li>
+      }
+    </ul>
+
+    <button class="btn btn-outline-light w-100 mt-4" (click)="salir()">
+      Cerrar sesión
+    </button>
+  </aside>
+
+  <main class="flex-grow-1 p-4 bg-light">
+    <h1 class="fw-bold">Bienvenido, {{ usuario }}</h1>
+    <p class="text-muted mb-4">
+      @if (esAdmin) {
+        Tienes acceso a todos los módulos.
+      } @else {
+        Tu rol tiene un acceso reducido.
+      }
+    </p>
+
+    <div class="row g-3">
+      @for (modulo of modulos; track modulo) {
+        <div class="col-md-6 col-lg-3">
+          <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+              <h5 class="fw-bold mb-0">{{ modulo }}</h5>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </main>
+</div>
